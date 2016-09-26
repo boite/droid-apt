@@ -24,6 +24,8 @@ class Utils
         }
         $cmd = $bin . ' ' . $action . ' ' . trim($arguments);
         $process = new Process($cmd);
+        $process->setTimeout(null);
+        $process->setIdleTimeout(null);
         $output->writeLn($process->getCommandLine());
         $process->run();
         
